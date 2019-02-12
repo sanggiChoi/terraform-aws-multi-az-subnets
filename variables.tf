@@ -53,9 +53,16 @@ variable "vpc_id" {
   description = "VPC ID"
 }
 
+/*
 variable "cidr_block" {
   type        = "string"
   description = "Base CIDR block which is divided into subnet CIDR blocks (e.g. `10.0.0.0/16`)"
+}
+*/
+
+variable "cidr_blocks" {
+  type        = "list"
+  description = "Base CIDR block which is divided into subnet CIDR block lists (e.g. `10.0.0.0/16`)"
 }
 
 variable "igw_id" {

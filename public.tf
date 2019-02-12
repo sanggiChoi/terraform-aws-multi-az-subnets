@@ -18,7 +18,8 @@ resource "aws_subnet" "public" {
   count             = "${local.public_count}"
   vpc_id            = "${var.vpc_id}"
   availability_zone = "${element(var.availability_zones, count.index)}"
-  cidr_block        = "${cidrsubnet(var.cidr_block, ceil(log(var.max_subnets, 2)), count.index)}"
+  #cidr_block        = "${cidrsubnet(var.cidr_block, ceil(log(var.max_subnets, 2)), count.index)}"
+  cidr_block        = "${element(var.cidr_blocks, count.index)}"
 
   tags = "${
     merge(
